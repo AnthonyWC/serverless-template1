@@ -1,0 +1,13 @@
+---
+service: hello-world
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: dev
+
+functions:
+  default:
+    handler: index.hello
+    memorySize: 1024
+    timeout: 360

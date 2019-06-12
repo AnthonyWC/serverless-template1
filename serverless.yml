@@ -1,0 +1,16 @@
+---
+custom: ${file(./${opt:stage, 'dev'}.yml)}
+
+service: ${self:custom.service}
+
+provider:
+  name: aws
+  region: ${self:custom.provider.region}
+  runtime: ${self:custom.provider.runtime}
+  stage: ${self:custom.provider.stage}
+
+functions:
+  default:
+    handler: ${self:custom.lambda.handler}
+    memorySize: ${self:custom.lambda.memorySize}
+    timeout: ${self:custom.lambda.timeout}

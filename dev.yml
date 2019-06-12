@@ -1,0 +1,13 @@
+---
+service: hello-world
+
+provider:
+  region: ${opt:region, 'us-east-1'}
+  runtime: nodejs8.10
+  stage: ${opt:stage, 'dev'}
+  tracing: true
+
+lambda:
+  handler: index.hello
+  memorySize: 1024
+  timeout: 360
